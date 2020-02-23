@@ -24,6 +24,7 @@ git 基本用法
     git log --oneline //只显示版本id和标题
     git log --oneline --all //只显示版本id和标题所有的记录
     git checkout xxx //穿越到指定的历史节点【最好7位数，从git log 后去拿commit后的唯一id吗多于7位数】
+    git reset --hard xx//回退到历史版本
     git checkout -   //回到最后的版本就是最后修改后的版本
 git 的三种状态（git status 查看）
     modified //已修改

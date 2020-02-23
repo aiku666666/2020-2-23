@@ -6,6 +6,7 @@ git安装后配置作者的email和姓名
     git config --list  //查看git作者的信息  简写： git config -l  //简写都不用 -- 只用 -
     git //会显示git的命令和介绍
 git 创建仓库
+    按j或者k是cmd的命令行向下
     ctrl+l //清屏cmd的
     ls -la //列出所有子目录
     //创建仓库的3种方式
@@ -19,3 +20,11 @@ git 基本用法
     git add *.html //上传某一类的文件(上传所有的html文件)
     git commit -m '描述' //提交版本【见到commit才是有后悔药】
     git log //查看版本记录，（回车去看记录，按q退回来）
+    git log -p //查看版本记录和版本修改的地方
+    git checkout xxx //穿越到指定的历史节点【最好7位数，从git log 后去拿commit后的唯一id吗多于7位数】
+    git checkout -   //回到最后的版本就是最后修改后的版本
+git 的三种状态（git status 查看）
+    modified //已修改
+    staged  //已暂存
+    committed //已提交
+git tag标签

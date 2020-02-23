@@ -17,4 +17,5 @@ git 基本用法
     git status  //查看仓库状态
     git add .//.表示所有文件都上传【只是暂存区】
     git add *.html //上传某一类的文件(上传所有的html文件)
-    git commit -m '描
+    git commit -m '描述' //提交版本【见到commit才是有后悔药】
+    git log //查看版本记录，（回车去看记录，按q退回来）

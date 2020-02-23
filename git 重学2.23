@@ -1,0 +1,20 @@
+查看git 版本
+git --version
+git安装后配置作者的email和姓名
+    git config --global user.name 'xx' //global全局配置
+    git config --global user.email 'xx'
+    git config --list  //查看git作者的信息  简写： git config -l  //简写都不用 -- 只用 -
+    git //会显示git的命令和介绍
+git 创建仓库
+    ctrl+l //清屏cmd的
+    ls -la //列出所有子目录
+    //创建仓库的3种方式
+        git init //初始化仓库
+        git init 文件名 //创建一个文件的同时初始化改仓库
+        git clone github的项目链接 //拷贝github的项目
+        git clone github的项目链接 重命名的名字 //拷贝github的项目并且重命名文件夹名字
+git 基本用法
+    git status  //查看仓库状态
+    git add .//.表示所有文件都上传【只是暂存区】
+    git add *.html //上传某一类的文件(上传所有的html文件)
+    git commit -m '描

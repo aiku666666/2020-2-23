@@ -1,0 +1,81 @@
+git 基础命令
+1.git init //初始化本地git空的仓库
+2.gie add<file>  //添加文件
+3.git status  //查看状态
+4.git commit    //提交 (到本地仓库)
+5.git push   //推送到仓库
+6.git pull    //从远程项目拉取数据
+7.git clone   //从远程项目拷贝数据
+8.git rm --cached <file> //删除某个文件
+git --version //查看git版本号
+在文件里面创建文件
+touch index.html //创建index.html文件
+touch app.js //创建app.js文件
+//配置
+1.git config --global user.name " " //配置一个全局的用户名
+2.git config --global user.email " " //配置一个全局的邮件
+
+git add *.html //上传某一类的文件(上传所有的html文件)
+git add . //上传所有的文件
+
+每次修改前都需要看下状态看是否和之前上传的一样
+
+提交之后会跳到备注，让其他人知道你做了什么
+要退回备注的页面操作  :wq 直接退出
+
+git diff //查看文件被修改了哪里（在添加、提交前）
+git log //查看过往的版本
+git commit -m"备注" //
+git log --pretty=oneline //你看到的一大串类似1094adb...的是commit id（版本号）
+git reset --hard HEAD^ //回退到上一个版本(^用英shift+6)
+git reset --hard 1094a //1094a是版本id只要上面的命令行窗口还没有被关掉,找到那个commit的id,于是就可以指定回到未来的某个版本
+git reflog //查看命令历史
+
+HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset --hard commit_id。
+穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
+要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
+
+git diff HEAD -- readme.txt //命令可以查看工作区和版本库里面最新版本的区别
+
+现在，你又理解了Git是如何跟踪修改的，每次修改，如果不用git add到暂存区，那就不会加入到commit中,就不会最终修改成功
+
+git checkout -- readme.txt //把readme.txt文件在工作区的修改全部撤销，这里有两种情况：
+一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。就是让这个文件回到最近一次git commit或git add时的状态。
+
+cat -file //显示文件内容
+
+git reset HEAD <file> //可以把暂存区的修改撤销掉（unstage），重新放回工作区
+git reset命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用HEAD时，表示最新的版本。
+
+小结
+又到了小结时间。
+场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD <file>，就回到了场景1，第二步按场景1操作。
+场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。
+
+rm -file //在文件管理器中直接删除文件
+先手动删除文件，然后使用git rm <file>和git add<file>效果是一样的。
+现在你有两个选择，一是确实要从版本库中删除该文件，那就用命令git rm删掉，并且git commit：
+
+另一种情况是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本：
+$ git checkout -- test.txt
+git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。
+小结
+命令git rm用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。
+
+
+//在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了，可直接跳到下一步,没有输入下面代码
+ssh-keygen -t rsa -C "youremail@example.com"
+git remote add origin git@github.com:michaelliao/learngit.git //连接github
+git push origin master //提交到github上
+
+小结
+要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；
+关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+分布式版本系统的最大好处之一是在本地工作完全不需要考虑远程库的存在，也就是有没有联网都可以正常工作，而SVN在没有联网的时候是拒绝干活的！当有网络的时候，再把本地提交推送一下就完成了同步，真是太方便了！
+
+小结
+要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆。
+Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快。

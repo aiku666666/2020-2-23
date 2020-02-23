@@ -1,0 +1,27 @@
+1.单元格测试方法（MOCK和coverage）【vueTest】
+	//最简单的测试
+function a(){
+	return 2
+}
+descript('this is a test fpr xx',()=>{ //回调函数
+	it('test function a',()=>{
+	    expect(a()).to.equal(2) //expect断言库，to.equal最后的结果
+
+	}) //新建测试用例，第一个参数是描述
+})
+	//没有返回值的时候
+function a1(){
+	div1.innerHTML='122'
+}
+descript('this is a test fpr xx',()=>{ //回调函数
+	it('test function a',()=>{
+	a()
+	    expect(div1.innerHTML).to.equal('122') //expect断言库，to.equal最后的结果
+
+	}) //新建测试用例，第一个参数是描述
+})
+1.单元格测试方法（jest）【vueTest--Jest】
+//其实2着之间的差距是不大的，基本内容都差不多但是配置不做修改的话是会报错的，单元格测试不会成功
+ //解决办法1.在jest.conf.js 将mapCoverage: true这个注释掉
+ //2.在 jest.conf.js的module.exports里面加上verbose:true,
+        testURL:'http://localhost/',

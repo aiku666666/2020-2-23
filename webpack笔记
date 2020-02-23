@@ -1,0 +1,35 @@
+1.环境
+1.1项目有哪些
+开发、测试、预发、线上
+1.2配置环境
+开发、测试、线上
+2.当你运行npm run build的时候发生什么事情
+ 2.1直接运行了build.js
+ 2.2build.js里面使用了webpack.pro.js打包
+ 2.3webpack.pro.js与webpack.base.js合并
+ 2.4从config里面拿index.js和pro.env里的变量
+ //webpack.base.conf.js是基础配置，开发环境和生产环境都需要的的配置
+ //webpack.prod.conf.js是生产环境的配置
+3.值得一提的loader和插件
+3.1 plugins
+    webpack.DefinePlugin //在打包阶段定义全局变量，自带模块是可以直接使用
+    webpack.HashedModuleldsPlugin //保持moudle.id稳定，针对常缓存优化
+    webpack.NoEmitOnErrorsPlugin //屏蔽错误（帮助我们在开发模式下开发顺畅点）
+    webpack.ProvidePlugin //提供库（import是可以引入库，但如果多个页面引入就要一直import）第三方库
+    copy-webpack-plugin //可以帮助拷贝内容
+//几乎所有的插件都是定义在plugins这个数组里面的new一下
+//例子：plugins;[
+            new  webpack.DefinePlugins({
+                'test':{a:1} //在其他地方是可以直接用这个全局变量的
+            }),
+             webpack.ProvidePlugin({
+                '$':'jquery' //引入jq库，可以直接使用就不用在页面上单独在用import 引用
+             })
+        ]
+4 优化的内容
+4.1 Dll优化 //优化打包速度
+    //一般第三方包不会变
+    //但webpack每次打包，还是回去处理第三方包
+    //  先对第三方包处理，然后在打包
+
+4.2 Happypack

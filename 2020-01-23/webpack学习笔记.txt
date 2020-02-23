@@ -1,0 +1,135 @@
+  跑一跑webpack
+终端配置
+  webpack src\index.js --output dist/bundle.js
+-------------------------------------------------------------
+webpack.config.js 开发配置
+    预览
+module.exports={
+	//入口文件
+	entry:{}
+	//出口文件
+	output:{}
+	//module.rule 模块规则
+	//loaders
+	module:{}
+	//插件
+	plugins:[]
+	//开发服务器
+	devServer:{}
+}
+------------------------------------------------------------------
+const path=require('path'); //node 系统自带的
+module.exports={
+	//入口文件
+	entry:{
+		a:'./src/index.js'
+	},
+	//出口文件
+	output:{
+		path:__dirname+'/dist' , //整体打包出去的路径，需要绝对的地址（__dirname node提供的当前地址）
+		//filename定死的
+		filename:'bundle.js' //写文件名字就够了，不需要写路径了，为了方便理解最好写一个path路径
+	}
+}
+------------------------------------------------------------------
+配置文件的名字一定得叫webpack.config.js  答：不是
+
+如果改名字：mmr.config.js
+  运行的时候：
+webpack --config mmr.config.js
+------------------------------------------------------------------
+npm run dev
+npm run build
+
+
+npm script: 
+	package.json:
+
+	"scripts":{
+		"build":"webpack --config mmr.config.js",
+		"dev":"xxx",
+		"aaa":""
+	}
+------------------------------------------------------------------
+
+parcel 零配置
+
+------------------------------------------------------------------
+webpack4.x 实现所谓的0配置
+
+------------------------------------------------------------------
+消除运行的时候的错误信息
+mode：
+webpack --mode development //消除开发的警告
+webpack --mode production  //消除生产的警告（明显文件被压缩了）
+
+------------------------------------------------------------------
+npm init -y生成package.json文件
+
+------------------------------------------------------------------
+
+多入口（多文件）打包在一起
+
+const path=require('path'); 
+module.exports={
+	//入口文件
+	entry:{
+		a:['./src/index.js','./src/index2.js'] //按照顺序依次打包到bundle.js
+	},
+	//出口文件
+	output:{
+		path:__dirname+'/dist' , //整体打包出去的路径，需要绝对的地址（__dirname node提供的当前地址）
+		//filename定死的
+		filename:'bundle.js' //写文件名字就够了，不需要写路径了，为了方便理解最好写一个path路径
+	}
+}
+
+-----------------------------------
+多出口
+
+
+const path=require('path'); 
+module.exports={
+	//入口文件
+	entry:{
+		index:'./src/index.js'，
+		index2:'./src/index2.js'
+	},
+	//出口文件
+	output:{
+		path:__dirname+'/dist' , 
+		filename:'[name].bundle.js' 
+	}
+}
+
+----------------------------------------------------------------------
+
+html-webpack-plugin:
+	生成页面
+
+
+	1.安装
+  	npm i html-webpack-plugin -D
+
+	2.引入
+	const htmlwebpackPlugin = require('html-webpack-plugin')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

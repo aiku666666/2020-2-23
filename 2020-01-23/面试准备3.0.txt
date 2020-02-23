@@ -1,0 +1,486 @@
+1.布局
+     1.1浮动布局 =>清除浮动方式（1.clear：both 2.设置高度 3.div伪类after和zoom 4.overflow：hidden）
+	优缺点:兼容性较好 缺点：要清除浮动 （随着高度撑开布局会混乱）
+	清除浮动方式优缺点
+		1.额外标签法（在最后一个浮动标签后，新加一个标签，给其设置clear：both；）（不推荐）
+		优点：通俗易懂，方便
+		缺点：添加无意义标签，语义化差
+		2.父级添加overflow属性（父元素添加overflow:hidden）（不推荐）
+		优点：代码简洁
+		缺点：内容增多的时候容易造成不会自动换行导致内容被隐藏掉，无法显示要溢出的元素
+		3.使用after伪元素清除浮动（推荐使用）
+		 .clearfix:after{/*伪元素是行内元素 正常浏览器清除浮动方法*/content: "";display: block;        height: 0;       clear:both;visibility: hidden;} .clearfix{       *zoom: 1;/*ie6清除浮动的方式 *号只有IE6-IE7执行，其他浏览器不执行*/    }
+		优点：符合闭合浮动思想，结构语义化正确
+		缺点：ie6-7不支持伪元素：after，使用zoom:1触发hasLayout.
+		4.使用before和after双伪元素清除浮动
+		.clearfix:after,.clearfix:before{
+        content: "";
+        display: table;
+    }
+    .clearfix:after{        clear: both;
+    }
+    .clearfix{
+        *zoom: 1;
+    }
+
+		优点：代码更简洁
+		缺点：用zoom:1触发hasLayout.
+	浮动布局是有局限性的，浮动元素是脱离文档流，要做清除浮动，这个处理不好的话，会带来很多问题，比如高度塌陷等。 
+	浮动布局的优点就是比较简单，兼容性也比较好。只要清除浮动做的好，是没有什么问题的。 
+     1.2 绝对定位
+	优缺点：绝对定位布局优点，很快捷，设置很方便，而且也不容易出问题，你可以很快的就能想出这种布局方式。 
+	缺点就是，绝对定位是脱离文档流的，意味着下面的所有子元素也会脱离文档流，这就导致了这种方法的有效性和可使用性是比较差的。
+     1.3.flexbox布局
+	优:felxbox布局是css3里新出的一个，它就是为了解决上述两种方式的不足出现的，是比较完美的一个。目前移动端的布局也都是用flexbox。 
+	缺:felxbox的缺点就是不能兼容IE8及以下浏览器。
+     1.4.表格table布局
+	优：表格布局的兼容性很好，在flex布局不兼容的时候
+	缺:表格布局也是有缺陷的，当其中一个单元格高度超出的时候，两侧的单元格也是会跟着一起变高的，而有时候这种效果不是我们想要的。
+     1.5.网格grid布局
+//https://blog.csdn.net/mrchengzp/article/details/78573208(具体文章)
+
+2.css盒子模型（由padding、margin、border、content组成）
+     2.1标准模型和ie模型
+	标准模型的宽高是content，ie模型的宽高是包括padding和border和content
+	box-sizing:content-box （标准模型）浏览器默认的
+	box-sizing:border-box （ie模型）
+     2.2js如何设置获取盒模型对应的宽和高
+	dom.style.width/height	//这个获取的是dom的内联属性（行内的样式）
+	dom.currentStyle.width/height //获取浏览器渲染完成后的宽和高（只针对Ie）
+	window.getComputedStyle(dom).width/height //获取浏览器渲染完成后的宽和高(所有浏览器都支持)
+	dom.getBoundingClientRect().width/height //计算一个元素的绝对位置获取4个元素left,top,height,width
+     2.3BFC(边距重叠解决方案)
+	概念:块级格式化上下文
+	原理:1.bfc这个元素的垂直方向的边距发生重叠。2.bfc的区域不会与浮动元素的box重叠3.bfc在页面上是一个独立的容器
+	4.计算bfc高度的时候浮动的元素也会参与计算
+     2.4创建bfc
+	 1.float的值不为none的时候2.position的值不为static和relative的时候
+	3.display:inline block和table相关的那几个 4.overflow:hidden\auto
+	(BFC清除浮动，bfc子元素即使是float也会参与高度计算)
+
+3.DOM事件类
+梳理知识：
+	基本概念：DOM事件级别
+	DOM事件模型（捕获和冒泡）
+	DOM事件流
+	描述DOM事件捕获的具体流程
+	Event对象的常见应用
+	自定义事件
+
+     3.1DOM事件类（事件级别）
+	DOM0 element.onclick=function(){}
+	DOM2 element.addEventListener('click',function(){},false)
+	dom3 element.addEventListener('keyup',function(){},false) //新增了事件类型
+	//true - 事件句柄在捕获阶段执行  false- 默认。事件句柄在冒泡阶段执行
+     3.2事件模型（捕获和冒泡）
+     3.3事件流（分3个阶段 第一阶段：捕获，第二阶段：目标阶段，第三阶段：冒泡）
+     3.4描述DOM事件捕获的具体流程（window=>document=>html=>body=>....目标元素 捕获流程）
+	获取html节点（document.documentElement）
+     3.5Event对象的常见应用(事件响应中非常重要的对象)
+	event.preventDefault() //阻止默认事件
+	event.stopPropagation() //阻止冒泡
+	event.stoplmmediatePropagation() //2个事件绑定在同一个事件时候，可以阻止后面一个执行
+	event.currentTarget //返回绑定事件的元素就是父级元素
+	event.target //事件代理的时候，在父级上绑定，响应的时候有点类似this
+     3.6自定义事件
+	var eve=new Event('custome');
+	ev.addEventListener('custome',function(){  //ev是个dom节点
+		console.log('custome')
+	})
+	ev.dispatchEvent(eve)  //dispatchEvent  api触发自定义事件
+	
+	CustomEvent(用法是一样的不过可以带一个参数)
+
+4.HTTP协议
+	HTTP协议的主要特点
+	HTTP报文的组成部分
+	HTTP的方法
+	POST和GET的区别
+	HTTP状态码
+	什么是持久连接
+	什么是管线化
+
+     4.1HTTP协议的主要特点
+	简单快速 ：每个资源的urI是固定的
+	灵活 ：http头部有个数据类型，通过一个http协议可以完成不同数据类型传输
+	无连接：连接一次后就会断掉不会保持一直连接
+ 	无状态：客户端和服务端是2种身份，每次连接后没法区分上次和这次是不是同一个人。无法区分2次连接
+	者的身份的
+     4.2HTTP报文的组成部分
+	请求报文（请求行+请求头+空行+请求体）
+		请求行	http方法、页面地址、协议、版本
+		请求头 key、value告诉服务端需要内容，注意什么类型
+		空行
+		请求体
+	响应报文（状态行+响应头+空行+响应体）
+		状态行:协议、版本、状态码
+		响应头
+		空行
+		响应体
+      4.3.HTTP方法
+	GET    获取资源
+	POST    传输资源
+	PUT        更新资源
+	DELETE    删除资源
+	HEAD        获得报文首部
+
+	GET 请求指定的页面信息，并返回实体主体
+	
+POST 向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。
+	数据被包含在请求体中。POST请求可能会导致新的资源的建立和/或已有资源的修改。
+
+	HEAD 类似于get请求，只不过返回的响应中没有具体的内容，用于获取报头
+	
+PUT 从客户端向服务器传送的数据取代指定的文档的内容。
+
+	DELETE 请求服务器删除指定的页面。
+	
+CONNECT HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。
+	
+OPTIONS 允许客户端查看服务器的性能。
+	
+TRACE 回显服务器收到的请求，主要用于测试或诊断。
+
+      4.4.POST和GET的区别
+	GET在浏览器回退是无害的，而POST会再次提交请求	
+	GET产生的URL地址可以被收藏，而POST不可以
+	GET请求会被浏览器主动缓存，而POST不会，除非手动设置
+	.GET请求参数会被完整保留在浏览器的历史记录里，而POST中的参数不会被保留
+	GET请求只能进行url编码，而POST支持多种编码方式对参数的数据类型，GET只接受ASCLL字符，而POST没有限制
+	GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息
+	GET参数通过URL传递，POST放在Request body中
+	本质上都是基于tcp/ip
+	   get header data 放在一起发生tcp数据包
+	   post 发送两次数据包 header 服务器返回100continue dat 服务器返回200成功
+
+      4.5.HTTP状态码
+	1xx：指示信息 ——表示请求已接收，继续处理
+    	2xx：成功——表示请求已被成功接收
+    	3xx：重定向——要完成请求必须进行更进一步的操作
+    	4xx：客户端错误——请求有语法错误或请求无法实现
+    	5xx：服务端错误——服务器未能实现合法的请求
+    	200：客户端请求成功
+    	206：客户发送了一个带Range头的GET请求，服务器完成了它
+   	301：所请求的页面已经转移到新的url
+    	302：所请求的页面已经临时转移至新的url
+    	304：客户端有缓冲的文档并发出了一个条件性的请求，服务器告诉客户，原来缓冲的文档还可以继续使用
+   	400：客户端请求有语法错误，不能被服务端所理解
+    	401：请求未经授权,这个状态代码必须和WWW-Authenticate报头域一起使用
+    	403：对被请求页面的访问被禁止
+    	404：请求资源不存在
+    	500：服务器发送不可预期的错误原来缓冲文档还可以继续使用
+    	503：请求未完成，服务器临时过载或当机，一段时间后可能恢复正常
+
+      4.6. 持久连接
+	1.HTTP协议采用"请求-应答"模式,当使用普通模式，即非Keep-Alive模式时，每个请求/应答客户和服务器都要建立一个连接，完成之后立即断开连接(HTTP协议为无连接的协议)
+	2.当使用Keep-Alive模式(持久连接、连接重用)时，Keep-Alive功能使客户端到服务器端连接持续有效，当出现对服务器的后续请求时，Keep-Alive功能避免了建立或者重新建立连接
+    	 1.1版本支持持久连接
+      4.7.管线化
+    	1.在使用持久连接的情况下，某个连接上消息的传递类似于，请求一次响应一次并且不断开
+           请求1 响应1  请求2 响应2  请求3 响应3
+    	2.管线化通道是持久建立的，把所有请求打包一次传输，所有响应打包一次传输 
+           请求1 请求2  请求3 响应1  响应2 响应3
+    	3.特点
+            1.管线化机制通过持久连接完成，仅HTTP/1.1支持此技术
+            2.只有GET和HEAD请求可以进行管线化，而POST则有所限制
+            3.初次创建连接是不应启动管线机制，因为对方(服务器)不一定支持HTTP/1.1版本的协议
+            4.管线化不会影响响应到来的顺序，如上面的例子所示，响应返还的顺序并未改变
+            5.HTTP/1.1要求服务器端支持管线化，但并不要求服务器端也对响应进行管线化处理，只是要求对于管线化的请求不失败即可
+            6.由于上面提到的服务器端问题，开启管线化很可能并不会带来大幅度的性能提升，而且很多服务器端和代理程序对管线化的支持并不好，因此现代浏览器如Chrome和Firefox默认并未开启管线化支持
+
+5.原型链
+	创建对象有几种方法
+	原型、构造函数、实例、原型链
+	instanceof的原理
+	new运算符
+     
+      5.1创建对象有几种方法 
+	//第一种:字面量（归为一类：这个对象的原型链接都指向object）
+	1.var o1={name:'o1'} //字面量对象
+	  var o11=new Object({name:'o11'})//new Object()申明一个对象
+	//第二种:通过构造函数
+	2.var M=function(name){this.name=name}
+	  var o2=new M('o2')
+	//第三种方式:Object.create
+	3.var P={name:'o3'}
+	  var o3=Object.create(P)
+
+      5.2原型、构造函数、实例、原型链（任何一个函数只要被new的话都可以说是构造函数）
+      5.4new运算符原理
+	var New2=function(func){
+		var o=Object.creat(func.prototype);
+		var k=func.call(o);
+		if(typeof k != 'object'){
+			return o
+		}else{
+			return k
+		}
+	}	
+
+6.面向对象
+      类与实例
+	类的声明
+	生成实例 
+      类与继承
+	如何实现继承
+	继承的几种方式	
+
+      6.1类与实例
+	1.类的声明
+		/*传统的构造函数的普通声明*/
+		function Animal(){
+			this.name='name'
+		}
+		/*es6中的class的声明*/
+		class Animal2{
+			constructor(){ //构造函数构造器
+				this.name=name
+			}
+		}		
+		/*实例化类的对象*/
+		console.log(new Animal(),new Animal2()) // new生成类实例,没有参数的话括号是可以不要的。__proto__指向它的原型链
+
+      6.2类与继承（继承的本质就是原型链）
+	1.如何实现继承
+		/*借助构造函数实现继承*/ //缺点：只是实现了部分继承，无法继承父类的原型对象的方法
+		function Parent1(){
+			this.name='parent1'
+		}
+		function Child1(){
+			Parent1.call(this); //apply和call改变了函数的上下文
+			this.type='child1'
+		}
+		/*借助原型链实现继承*/ //缺点：在修改原型对象的情况下，实例也会随着改变。这是由于原型对象是公共的，任何实例都会继承
+		function Parent2(){
+			this.name='parent2'
+		}
+		function Child2(){
+			this.type='child2'
+		}
+		Child2.prototype=new Parent2();//重点，任何函数都有prototype这个属性的
+		//new Child2().__proto__=Child2.prototype=new Parent2()
+		//new Child2().__proto__.name == "parent2"
+		/*组合方式*/ //实现继承的通用方式
+		//缺点：多次调用Parent3的方法
+		function Parent3(){
+			this.name='parent3';
+			this.play=[1,2,3]
+		}
+		function Child3(){
+			Parent3.call(this); 
+			this.type='child3'
+		}
+		Child3.prototype=new Parent3()
+		var s3=new Child3();
+		var s4=new Child3();
+		s3.play.push(4);
+		console.log(s3.play,s4.play) //[1,2,3,4],[1,2,3]
+		/*组合继承的优化方式1*/ //缺点：constructor指向的是父级
+		function Parent4(){
+			this.name='parent4';
+			this.play=[1,2,3]
+		}
+		function Child4(){
+			Parent4.call(this); 
+			this.type='child4'
+		}
+		Child4.prototype=Parent4.prototype;//如果说在底部加一行constructor指向修改的话父级肯子级指向是同时修改了
+		var s5=new Child4();
+		var s6=new Child4();
+		/*组合继承的优化方式2*/ //缺点：
+		function Parent5(){
+			this.name='parent5';
+			this.play=[1,2,3]
+		}
+		function Child5(){
+			Parent5.call(this); 
+			this.type='child5'
+		}
+		Child5.prototype=Object.create(Parent5.prototype); //__proto__一级一级往上找
+		Child5.prototype.constructor=Child5
+		var s7=new Child5();
+		var s8=new Child5();
+
+
+7.通信类
+	什么是同源策略及限制
+	前后端如何通信
+	如何创建Ajax
+	跨域通信的几种方式
+
+     7.1什么是同源策略及限制（源：http协议、域名、端口（默认端口80））
+	含义：同源策略限制从一个源加载的文档或脚本如何与来自另一个源胡资源进行交互。这是一个用于隔离潜在恶意文件的关键安全机制
+	限制：
+	Cookie、LocalStorage和indexDB无法读取
+	DOM无法获取	
+	AJAX请求不能发送（只适合同源通信）
+     
+     7.2前后端如何通信
+	1.Ajax(同源下的通信方式)
+	2.webSocket（不受同源限制的影响）
+	3.CORS（支持同源通信也支持跨域通信）
+
+     7.3如何创建Ajax
+	XMLHttpRequest对象的工作流程
+	兼容性处理
+	事件的触发条件
+	事件的触发顺序
+	
+	var xhr=XMLHttpRequest?new XMLHttpRequest():new window.ActiveXObject("Microsft.XMLHTTP")//兼容性ie	
+	(状态码返回结果 status == 200 || status == 206(新闻类的包比较大，一部分一部分胡发送) || status==304(可能以前有发出过请求，服务器告诉你原来的还是可以用))
+    
+     7.4跨域通信的几种方式
+	JSONP
+	Hash（#后面的就是hash，hash改变页面是不刷新的。url中问号结尾的改变是会刷新页面的）
+	postMessage（h5中出现的）
+	WebSocket
+	CORS（新出的，支持跨域的ajax）
+	1.JSONP
+	原理：利用script标签的异步加载的
+	<script src="url?callback=jsonpHandler"></script>
+	//回调函数
+	jsonpHandler = function(data){
+    		handel(data);
+	}
+	//监听外部js是否加载完成
+	script.onload = script.onreadystatechange
+
+	//监听脚本是否用完？用完后记得删除函数或便利
+	jsonpHandler=null
+	2.Hash
+	//利用Hash，场景是当前页面A，通过iframe或frame嵌入了跨域的页面B
+	//在A的代码如下：
+		var B=document.getElementsByTagName('iframe')
+		B.src=B.src+'#'+'data'
+	//在B的代码如下：（B页面获取A页面想要传的参数，如果是json的话用JSON.stringify()和JSON.parse（））
+		window.onhashchange=function(){ //onhashchange监听当前页面的hash是否改变
+ 			var data=window.location.hash
+		}
+	3.postMessage
+	//窗口A(http://A.com)向跨域的窗口B(http://B.com)发送东西
+	Bwindow.postMessage('data','heep://B.com') //data使用字符串格式，Bwindow表示的是B窗口
+	//在窗口B中监听：
+	window.addEventListener('message',function(event){
+		console.log(event.origin) //http://A.com
+		console.log(event.source) //Awindow,就是A页面窗口的对象
+		console.log(event.data); //data
+	},false)
+	实战例子
+	// a.html
+  	<iframe src="http://localhost:4000/b.html" frameborder="0" id="frame" onload="load()"></iframe> //等它加载完触发一个事件
+  	//内嵌在http://localhost:3000/a.html
+    	<script>
+     	 function load() {
+      	  let frame = document.getElementById('frame')
+     	   frame.contentWindow.postMessage('我爱你', 'http://localhost:4000') //发送数据
+      	  window.onmessage = function(e) { //接受返回数据
+        	  console.log(e.data) //我不爱你
+        	}
+      	}
+    	</script>								
+
+	// b.html
+  	window.onmessage = function(e) {
+   		console.log(e.data) //我爱你
+    		e.source.postMessage('我不爱你', e.origin)
+ 	}
+
+	4.WebSocket
+	var ws=new WebSocket('wss://echo.websocke.org');//ws和wss一个的非加密一个是加密，后面的echo...指向的是服务器的地址
+	ws.onopen=function(){//发送消息
+		console.log('Connection open....');
+		ws.send('hello WebSocket!')
+	}	
+	ws.onmessage=function(evt){ //接收消息
+		console.log('Received Message'+evt.data);
+		ws.close();
+	}
+	ws.onclose=function(){  //关闭
+		console.log('Connection closed');
+	}
+	5.CORS(ajax的变种)
+	//CORS[参考]http://ruanyifeng.com/blog/2016/04/cors.html
+	//URL(必须)，options(可选)
+	fetch('/some/url',{  //fetch实现CORS，和promise类似
+		method:'get'
+	}).then(function(response){
+	
+	}).catch(function(err){
+		//出错了，等价于then的第二个参数，但这个更好用，更直观
+	})
+	原理：它允许浏览器向非同源服务器发送XMLHttpRequest请求，能够像访问同源本地服务器一般。Cors需要浏览器和服务器同时支持,现在的主流浏览器（Google/IE/FireFox/360）一般都支持跨域的，所以关键在于服务器端实现跨域问题,才能真正实现跨域通信。
+
+
+8.安全类
+	1.CSRF
+	2.XSS
+ 
+     8.1CSRF
+	基本概念和缩写
+	攻击原理
+	防御措施
+
+	基本概念和缩写（跨站请求伪造）
+	
+	攻击原理
+	1.网站中某个接口存在漏洞2.用户在这个网站登录过
+	
+	防御措施
+	1.Token验证
+	2.Referer验证（页面来源）
+	3.隐藏令牌（）
+
+     8.2XSS(http://www.imooc.com/learn/812)
+	基本概念和缩写
+	XSS(cross-site scripting跨域脚本攻击)
+	攻击原理:不需要你做任何的登录认证，核心原理像你页面注入脚本（合法的渠道注入js）
+	防御措施：核心宗旨就是让你注入得的js不能执行
+
+    8.3XSS和CSRF的区别
+	XSS是向你页面注入js去运行，js函数里去做他想做的事情
+	CSRF是利用你本身的漏洞去帮你自动执行接口，以来于用户要登入网站
+
+
+9.算法类
+	排序
+	堆栈、列队、链表
+	递归
+	波兰式和逆波兰式
+
+    9.1排序
+	快速排序:https://segmentfault.com/a/1190000009426421
+	选择排序:https://segmentfault.com/a/1190000009366805
+	希尔排序:https://segmentfault.com/a/1190000009461832
+
+    9.2堆栈、列队、链表
+	堆栈：https://juejin.im/entry/58759e79128fe1006b48cdfd
+	列队：https://juejin.im/entry/58759e79128fe1006b48cdfd
+	链表：https://juejin.im/entry/58759e79128fe1006b48cdfd
+
+   9.3递归
+	递归:https://segmentfault.com/a/1190000009857470(抓本质)
+
+   9.4波兰式和逆波兰式
+	理论：http://www.cnblogs.com/chenying99/p/3675876.html
+	源码：https://guthub.com/Tairraos/rpn.js/blob/master/rpn.js
+
+
+10.渲染机制（浏览器渲染页面的）
+	什么是DOCTYPE及作用
+	浏览器渲染过程
+	重排Reflow
+	重绘Repaint
+	布局Layout	
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+git 基础命令
+1.git init //初始化本地git空的仓库
+2.gie add<file>  //添加文件
+3.git status  //查看状态
+4.git commit    //提交 (到本地仓库)
+5.git push   //推送到仓库
+6.git pull    //从远程项目拉取数据
+7.git clone   //从远程项目拷贝数据
+8.git rm --cached <file> //删除某个文件
+git --version //查看git版本号
+在文件里面创建文件
+touch index.html //创建index.html文件
+touch app.js //创建app.js文件
+//配置
+1.git config --global user.name " " //配置一个全局的用户名
+2.git config --global user.email " " //配置一个全局的邮件
+
+git add *.html //上传某一类的文件(上传所有的html文件)
+git add . //上传所有的文件
+
+每次修改前都需要看下状态看是否和之前上传的一样
+
+提交之后会跳到备注，让其他人知道你做了什么
+要退回备注的页面操作  :wq 直接退出

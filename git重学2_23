@@ -37,3 +37,7 @@ git tag标签
     git show 标签名称  //查看某个标签的详细信息
     git tag //列出所有标签
     git checkout 标签名    //回溯至标签所在的提交
+git 分支branch
+    git branch 分支名字 //创建分支
+    git checkout 分支名  //切换到分支上了
+    git log --all --graph //图示全部历史记录

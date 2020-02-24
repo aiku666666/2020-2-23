@@ -41,3 +41,15 @@ git 分支branch
     git branch 分支名字 //创建分支
     git checkout 分支名  //切换到分支上了
     git log --all --graph //图示全部历史记录
+git 合并分支
+    git checkout -b 分支名 //创建并切换至分支
+    git merge 分支名  //合并分支【合并后代码可能会有冲突，所以认为修改冲突后提交】
+git 远程仓库
+    git remote add 远程名称  远程地址  //添加远程仓库
+    git remote   //列出所有远程仓库
+    git remote -v   //列出所有远程仓库详细信息
+    git push -u 远程名称 分支名  //上传代码【分支名：默认是master】
+    git clone github的项目链接 //拷贝github的项目
+    拷贝的项目要在上传代码的话
+    //远程仓库里 master是默认分支名称。origin是默认的远程仓库名称
+    //它默认你克隆的项目地址为远程仓库了

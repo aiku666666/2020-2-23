@@ -27,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/git重学2_23">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="42" column="36" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
+            <state relative-caret-position="277">
+              <caret line="40" column="4" lean-forward="true" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -54,7 +54,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="207" />
     <option name="y" value="260" />
     <option name="width" value="1378" />
@@ -136,12 +136,12 @@
       <workItem from="1582383825360" duration="243000" />
       <workItem from="1582384105809" duration="3052000" />
       <workItem from="1582458121709" duration="4787000" />
-      <workItem from="1582515796300" duration="658000" />
+      <workItem from="1582515796300" duration="970000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22894000" />
+    <option name="totallyTimeSpent" value="23206000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -398,8 +398,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/git重学2_23">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="42" column="36" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
+        <state relative-caret-position="277">
+          <caret line="40" column="4" lean-forward="true" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="14" />
         </state>
       </provider>
     </entry>

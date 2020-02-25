@@ -1,0 +1,7 @@
+npm 更新版本
+    npm install npm@版本号 -g //更新npm到某个版本或者输入latest就是最近的稳定版本 -g是全局
+npm 的常用操作
+    npm init  -y //初始化
+    //如果node_modules被删除的话只要有package.json里面依赖的第三方配置 就可以直接 npm i命令就好
+    npm uninstall 第三方库名 //卸载某个库
+    npm update 第三方库名 //更新第三方库

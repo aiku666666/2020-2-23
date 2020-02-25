@@ -28,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/git重学2_23">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+            <state relative-caret-position="291">
+              <caret line="57" selection-start-line="57" selection-end-line="57" />
             </state>
           </provider>
         </entry>
@@ -55,9 +55,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="109" />
-    <option name="y" value="279" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="37" />
+    <option name="y" value="4" />
     <option name="width" value="1378" />
     <option name="height" value="728" />
   </component>
@@ -138,12 +138,13 @@
       <workItem from="1582384105809" duration="3052000" />
       <workItem from="1582458121709" duration="4787000" />
       <workItem from="1582515796300" duration="970000" />
-      <workItem from="1582554912893" duration="4189000" />
+      <workItem from="1582554912893" duration="4329000" />
+      <workItem from="1582640039769" duration="1288000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28478000" />
+    <option name="totallyTimeSpent" value="29906000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -155,7 +156,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="109" y="279" width="1378" height="728" extended-state="1" />
+    <frame x="37" y="4" width="1378" height="728" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
@@ -400,8 +401,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/git重学2_23">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+        <state relative-caret-position="291">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
         </state>
       </provider>
     </entry>

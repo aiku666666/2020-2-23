@@ -5,3 +5,4 @@ npm 的常用操作
     //如果node_modules被删除的话只要有package.json里面依赖的第三方配置 就可以直接 npm i命令就好
     npm uninstall 第三方库名 //卸载某个库
     npm update 第三方库名 //更新第三方库
+    npm i xxx --save-dev //开发环境下的依赖插件（不是生产环境下的依赖）

@@ -9,7 +9,7 @@ var cssSrc = './src/css/**/*.css',
 gulp.task('css', function () {
     return gulp.src(cssSrc)
             .pipe(rev())
-            .pipe(gulp.dest('../lsk/css'))
+            .pipe(gulp.dest('../lskq/css'))
             .pipe(rev.manifest({ meger: true }))
             .pipe(gulp.dest('./dist/css'))
 });

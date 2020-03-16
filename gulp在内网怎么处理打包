@@ -1,0 +1,5 @@
+1.首先解压并安装node(gulp是基于node环境的)【gulp使用的是4.02版本】
+2.在有网络的电脑先安装全局的gulp和你要打包项目先下好需要的gulp的插件（由于内网没有网络，是无法用npm的。所以还是死心吧）
+3.C:\Users\Administrator\AppData\Roaming\npm将此路径的文件和需要打包项目一起弄到内网的电脑上（npm里面是gulp，目的是让系统识别gulp指令，方便调用项目中的gulpFile.js）
+4.将npm包里面内容放到内网电脑上对应的位置就好。
+5.到先过目对应的目录就可以直接使用gulp指令了（切记项目的node_modules文件夹不能丢，要不然你会缺少对应的插件的）

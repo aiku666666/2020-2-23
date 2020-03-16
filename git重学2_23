@@ -9,6 +9,7 @@ git 创建仓库
     按j或者k是cmd的命令行向下
     ctrl+l //清屏cmd的
     ls -la //列出所有子目录
+    ctrl+c //阻止gulp运行
     //创建仓库的3种方式
         git init //初始化仓库
         git init 文件名 //创建一个文件的同时初始化改仓库

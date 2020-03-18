@@ -3,4 +3,18 @@
     2.自己动手搭建一个ssr+vue项目
     3.vue方便的ssr框架nuxt
 
-1.什么是ssr（服务器端渲染）【vue项目没有经过ssr渲染的一般称为纯浏览器渲染】（10：35）
+1.什么是ssr（服务器端渲染）【vue项目没有经过ssr渲染的一般称为纯浏览器渲染 -- 更接近原生app】（10：35）
+ 没有ssr的vue项目有2个缺点：1.由于要经过js渲染所以反应的比较慢。2.不利于seo优化
+2.手写一个自己的ssr
+    //特性
+    1.每一次访问必须新建一个vue实例
+    2.只会触发组件的的beforeCreate和creatd钩子，所以需要客户端js（mounted是页面已经渲染完成，所以在服务器渲染时候不会触发，在客户端时候才触发）
+    //  核心库
+    1.vue
+    2.vue-server-renderer(服务端渲染)
+    //例子
+    1.ssrCase1只是简单传统的方式写的ssr例子
+    1.1首先在对应的项目里面 npm init -y(这样就可以直接npm下载对应的插件了)
+    1.2 npm i vue vue-server-renderer --save-dev(下载对应的vue和vue-server-renderer插件)
+    1.3写出对应的方法。使用node test.js去执行test.js
+    2.工程化的情况下做ssr（32：47）

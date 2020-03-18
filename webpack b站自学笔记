@@ -1,0 +1,62 @@
+//安装
+    npm i webpack-cli webpack -g
+1.安装命令
+//基本使用
+    webpack 输入文件.js 输出文件.js
+//特性
+    0cjs //在webpack4里面如果输入文件在src下默认的输出文件dist不用在去配置。打包命令 【webpack --mode development】
+//简单例子（webpack4.0 => code）
+    //基本指令
+    webpack 输出文件 -o 打包后重新命名文件  //生产环境打包
+    webpack --mode development 输出文件 -o 打包后重新命名文件  //开发环境打包
+    当打包的文件在src里面的时候，
+    执行命令 webpack --mode development 开发模式时候自动生成dist文件和打包文件main
+    执行命令 webpack 生产模式时候自动生成dist文件和打包文件main（生产模式下debug会被节省掉）
+2.配置文件
+//webpack 配置文件（webpack4.0 => simgle）
+    //webpack.config.js(出口入口配置)
+        // 例子
+            //单个文件打包的
+        const path=require('path');
+        mmodule.exports={
+             entry:'./index.js', //entry 是个对象，可以经行多个文件打包
+             output:{
+                 path:path.resolve(__dirname ,'dist'),
+                 filename:'output.bundle.js'
+             }
+         }
+            //多个文件打包
+        module.exports={
+            entry:{
+               about:'./about',
+               home:'./home'
+            },
+            output:{
+                path:path.resolve(__dirname,'dist'),
+                filename:"[name].bundle.js"
+            },
+            mode:'development'  //开发模式：'production'和'development'这样打包的时候直接就可以写命令webpack后面就不用加模式了
+        }
+https://webpack.js.org/loaders/【webpack的loader查找】
+3.加载器url-loader(可以对图片进行base64处理)[loader是webpack去预处理原文件的]（webpack4.0 => simgle2）
+    3.1.npm install url-loader --save-dev
+    3.2.url-loder的调用
+        module.exports = {
+          module: {
+            rules: [
+              {
+                test: /\.(png|jpg|gif)$/i, //规则匹配png、jpg、gif的规则
+                use: [
+                  {
+                    loader: 'url-loader',  //使用插件
+                    options: {
+                      limit: 8192,   //限制如果是8k以下的执行转变base64.否则就是原来的静态资源
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        };
+     注意：在图片比限制的文件大的时候图片不会被url-loader转化成base64位的，所以他还需要安装file-loader来打包静态图片资源
+     file-loader指令：npm i file-loader --save-dev

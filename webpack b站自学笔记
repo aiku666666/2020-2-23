@@ -60,3 +60,131 @@ https://webpack.js.org/loaders/【webpack的loader查找】
         };
      注意：在图片比限制的文件大的时候图片不会被url-loader转化成base64位的，所以他还需要安装file-loader来打包静态图片资源
      file-loader指令：npm i file-loader --save-dev
+4.加载器babel-loader(可以将es6,es7转换成es5，便于浏览器识别)（webpack4.0 => simgle3）
+    4.1 npm install -D babel-loader @babel/core @babel/preset-env webpack // @babel/core核心代码 @babel/preset-env规则
+    4.2 babel-loader的调用
+    module: {
+            rules: [
+                {
+                    test: /\.m?js$/, //匹配文件如果是jsx文件就要改成 /\.(m?js|jsx)$/
+                    exclude: /(node_modules|bower_components)/,
+                    use: {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
+                        }
+                    }
+                }
+            ]
+        }
+5.加载器sass-loader(可以将sass 编译成css)
+    5.1 npm install sass-loader node-sass webpack --save-dev
+    5.2 sass-loader调用
+    module: {
+        rules: [
+          {
+            test: /\.s[ac]ss$/i,  //匹配scss文件
+            use: [ //最好也安装下style-loader css-loader插件
+              // Creates `style` nodes from JS strings
+              'style-loader',
+              // Translates CSS into CommonJS
+              'css-loader',
+              // Compiles Sass to CSS
+              'sass-loader',
+            ],
+          },
+        ],
+      }
+6.插件miniCssExtract【目的是打包的时候分离出js中的css，单独打包成一个css文件】
+    6.1 npm install --save-dev mini-css-extract-plugin
+    6.2 miniCssExtract 使用
+   const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //调用插件
+   module.exports = {
+     plugins: [
+       new MiniCssExtractPlugin({
+         // Options similar to the same options in webpackOptions.output
+         // both options are optional
+         filename: '[name].css',  //[name]是入口文件名称
+         chunkFilename: '[id].css',
+       }),
+     ],
+     module: {
+       rules: [
+         {
+           test: /\.css$/,
+           use: [
+              process.env.NODE_ENV !== 'production'      //判断是否是生产环境不是的话用插件style-loader,否则是css-loader sass-loader
+                         ? 'style-loader'
+                         : MiniCssExtractPlugin.loader,
+                       'css-loader',
+                       'sass-loader',
+              //也可以写成默认
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader',
+           ],
+         },
+       ],
+     },
+   };
+7.插件DefinePlugin[全局变量]
+    module.exports = {
+         plugins: [
+           new MiniCssExtractPlugin({
+             // Options similar to the same options in webpackOptions.output
+             // both options are optional
+             filename: '[name].css',  //[name]是入口文件名称
+             chunkFilename: '[id].css',
+           }),
+           new webpack.DefinePlugin({
+             'SERVICE_URL': JSON.stringify('https://dev.example.com')  // SERVICE_URL这个是个全局参数，不需要调用DefinePlugin这个插件但是要引用下webpack，webpack自带的
+           });
+         ]
+         }
+9.插件Html(HtmlWebpackPlugin)[帮助我们去生成html文件]
+    9.1 npm install --save-dev html-webpack-plugin
+    9.2 HtmlWebpackPlugin插件使用（他会自动生成html 文件，同时会配置好js和css）
+    var HtmlWebpackPlugin = require('html-webpack-plugin');
+    var path = require('path');
+    module.exports = {
+      entry: 'index.js',
+      output: {
+        path: path.resolve(__dirname, './dist'),
+        filename: 'index_bundle.js'
+      },
+      plugins: [new HtmlWebpackPlugin()]
+    };
+    9.3 定制一个自己的html
+    {
+      entry: 'index.js',
+      output: {
+        path: __dirname + '/dist',
+        filename: 'index_bundle.js'
+      },
+      plugins: [
+        new HtmlWebpackPlugin({
+          title: 'My App', //title名称
+          filename: 'assets/admin.html',  //生成html的文件名和文件位置（输出文件）
+          template: 'src/assets/test.html' //输入文件（可以在文件里面定义title div和js）
+        })
+      ]
+    }
+    //文件里面的title要放入<%= htmlWebpackPlugin.options.title %> 这样才能将MY App调用进去
+10.热替换[DevServer服务]
+     10.1 npm install --save-dev webpack-dev-server(启用服务并且可以热替换)
+     10.2 webpack-dev-server的使用
+     var path=require('path');
+      module.exports = {
+        devServer:{
+            contentBase:path.join(__dirname,'dist'),  //在哪个文件启动我们服务
+            compress:true,  //是否需要压缩
+            port:9000, //端口号
+            hot:true //热替换功能，在webpack4版本里面就不用配置了。默认是热替换额
+        }
+      }
+      10.3启动 webpack-dev-server,在package.json里面添加start命令（由于直接在终端的输入webapck-dev-server，全局没安装这个插件所以不支持这个指令）
+       "scripts": {
+          "test": "echo \"Error: no test specified\" && exit 1",
+          'start':'webpack-dev-server'
+        },
+11.webpack4 版本升级（3升级到4注意事项）

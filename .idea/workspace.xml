@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5fc5b5b-66f1-45c6-83e2-d73f8d0f7865" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/webpack4.0/simgle3/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack4.0/simgle3/webpack.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack b站自学笔记" beforeDir="false" afterPath="$PROJECT_DIR$/webpack b站自学笔记" afterDir="false" />
     </list>
@@ -21,26 +19,44 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webpack b站自学笔记">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="189" column="26" selection-start-line="189" selection-start-column="26" selection-end-line="189" selection-end-column="26" />
+            <state relative-caret-position="259">
+              <caret line="244" column="67" selection-start-line="244" selection-start-column="67" selection-end-line="244" selection-end-column="67" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack4.0/simgle3/package.json">
+        <entry file="file://$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/dist/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="248" selection-start-column="248" selection-end-column="248" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/build/webpack.dev.conf.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="133">
-              <caret line="7" column="4" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="7" selection-end-column="4" />
+              <caret line="16" column="19" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/csFile/gulp_test/gulpfile.js">
+        <entry file="file://$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/build/webpack.prod.conf.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-849">
-              <caret line="8" column="50" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="50" />
+            <state relative-caret-position="129">
+              <caret line="103" column="22" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/build/webpack.base.conf.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -65,6 +81,13 @@
       <find>server</find>
       <find>home</find>
       <find>fetch</find>
+      <find>vue-loader</find>
+      <find>CommonsChunkPlugin</find>
+      <find>contenthash</find>
+      <find>new MiniCssExtractPlugin(),</find>
+      <find>extract</find>
+      <find>chunks</find>
+      <find>development</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -73,9 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/csFile/gulp_test/dist/js/build.js" />
-        <option value="$PROJECT_DIR$/vueTest/test/unit/specs/HelloWorld.spec.js" />
-        <option value="$PROJECT_DIR$/vueTest--Jest/test/unit/specs/HelloWorld.spec.js" />
         <option value="$PROJECT_DIR$/vueTest--Jest/test/unit/jest.conf.js" />
         <option value="$PROJECT_DIR$/单元格测试  --笔记.txt" />
         <option value="$PROJECT_DIR$/webpack笔记" />
@@ -121,6 +141,11 @@
         <option value="$PROJECT_DIR$/webpack4.0/simgle2/webpack.config.js" />
         <option value="$PROJECT_DIR$/webpack4.0/simgle3/webpack.config.js" />
         <option value="$PROJECT_DIR$/webpack4.0/simgle3/index.js" />
+        <option value="$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/.babelrc" />
+        <option value="$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/build/webpack.dev.conf.js" />
+        <option value="$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/build/webpack.base.conf.js" />
+        <option value="$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/build/webpack.prod.conf.js" />
+        <option value="$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/dist/index.html" />
         <option value="$PROJECT_DIR$/webpack b站自学笔记" />
       </list>
     </option>
@@ -139,6 +164,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -155,13 +181,27 @@
               <item name="wyProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="wyProject" type="462c0819:PsiDirectoryNode" />
               <item name="webpack4.0" type="462c0819:PsiDirectoryNode" />
-              <item name="simgle3" type="462c0819:PsiDirectoryNode" />
+              <item name="simgle4" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wyProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wyProject" type="462c0819:PsiDirectoryNode" />
+              <item name="webpack4.0" type="462c0819:PsiDirectoryNode" />
+              <item name="simgle4" type="462c0819:PsiDirectoryNode" />
+              <item name="hello_vue" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wyProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wyProject" type="462c0819:PsiDirectoryNode" />
+              <item name="webpack4.0" type="462c0819:PsiDirectoryNode" />
+              <item name="simgle4" type="462c0819:PsiDirectoryNode" />
+              <item name="hello_vue" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -246,12 +286,15 @@
       <workItem from="1584521394972" duration="7318000" />
       <workItem from="1584623171790" duration="4204000" />
       <workItem from="1584716253347" duration="1257000" />
-      <workItem from="1584887008085" duration="3628000" />
+      <workItem from="1584887008085" duration="4423000" />
+      <workItem from="1584974367290" duration="1427000" />
+      <workItem from="1584975841221" duration="4225000" />
+      <workItem from="1585055447743" duration="6147000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80056000" />
+    <option name="totallyTimeSpent" value="92650000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -278,7 +321,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49925596" weight="0.32786885" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49925596" visible="true" weight="0.32786885" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50074404" side_tool="true" weight="0.32405892" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -311,46 +354,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/csFile/jtzy/dist/index.html" />
-    <entry file="file://$PROJECT_DIR$/csFile/jtzy/dist/js/rev-manifest.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/csFile/lsk/js/js1.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/csFile/lsk/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/csFile/lsk/html/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="64" selection-start-line="5" selection-start-column="64" selection-end-line="6" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/csFile/ls/package.json" />
-    <entry file="file://$PROJECT_DIR$/csFile/ls/gulpfile.js" />
-    <entry file="file://$PROJECT_DIR$/教程/Gulp快速入门教程.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="475">
-            <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/csFile/jtzy/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-475">
-          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nodeJs学习笔记">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -585,7 +588,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/csFile/gulp_test/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-849">
+        <state relative-caret-position="152">
           <caret line="8" column="50" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="50" />
         </state>
       </provider>
@@ -593,14 +596,67 @@
     <entry file="file://$PROJECT_DIR$/webpack4.0/simgle3/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="7" column="4" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="7" selection-end-column="4" />
+          <caret line="7" column="4" selection-start-line="5" selection-start-column="1" selection-end-line="7" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/node_modules/vue-loader/lib/loader.js" />
+    <entry file="file://$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/build/build.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="60" column="19" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/.babelrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/node_modules/webpack/lib/webpack.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="206" selection-start-line="206" selection-end-line="206" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/build/webpack.base.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/build/webpack.prod.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="103" column="22" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/build/webpack.dev.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack4.0/simgle4/hello_vue/dist/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="248" selection-start-column="248" selection-end-column="248" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webpack b站自学笔记">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="189" column="26" selection-start-line="189" selection-start-column="26" selection-end-line="189" selection-end-column="26" />
+        <state relative-caret-position="259">
+          <caret line="244" column="67" selection-start-line="244" selection-start-column="67" selection-end-line="244" selection-end-column="67" />
         </state>
       </provider>
     </entry>

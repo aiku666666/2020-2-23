@@ -187,4 +187,59 @@ https://webpack.js.org/loaders/【webpack的loader查找】
           "test": "echo \"Error: no test specified\" && exit 1",
           'start':'webpack-dev-server'
         },
-11.webpack4 版本升级（3升级到4注意事项）
+11.webpack4 版本升级（3升级到4注意事项）[simgle4](升级思路，首先升级webpack，然后根据报错来解决问题)
+    11.1 webpack安装vue项目后先检查下项目是否可以运行(vue-cli是基于webpack3.0的版本) //npm start(开发时候打包启用)
+    11.2 查看package.json里面webpack的版本号确定是否升级
+    11.3 首先升级webpack为4版本 // npm i webpack@^4 -D  (devDependencies表示D， dependencies表示S)
+    11.4 然后升级webpack-dev-server,因为它和webpack是配套使用的 // npm i webpack-dev-server@latest -D
+    11.5 缺少webpack-cli.所以安装下 //npm i webpack-cli@latest -D
+    11.6 html-webpack-plugin出现问题 //npm i html-webpack-plugin@latest -D
+    11.7 eslint-loader出问题 //npm i eslint-loader@latest -D
+    11.8 vue-loader有问题 //
+    11.9 识别不了css，到package.json里面升级css版本 //npm i css-loader@latest -D   npm i postcss-loader@latest -D
+    11.10 发现在vue-loader里面需要配置才行
+        // webpack.base.config.js
+        const VueLoaderPlugin = require('vue-loader/lib/plugin')
+        module.exports = {
+          // ...
+          plugins: [
+            new VueLoaderPlugin()
+          ]
+        }
+    11.11 webpack 最高版本，造成 混用import和module.exports会报错解决方法
+    注释文件中 .babelrc中的plugins的transform-runtime插件
+    11.12 在打包的时候会报错webpack.optimize.CommonsChunkPlugin已经在webpack4已经移除，需要用config.optimization.splitChunks //npm run build
+    去官网把对应使用方法copy下来放到webpack.prod.conf.js里面，同时去掉webpack.prod.conf.js的CommonsChunkPlugin方法
+    注意：webpack.base.conf.js是webpack的基础配置。webpack.dev.conf.js是开发配置。webpack.prod.conf.js是生产配置
+    11.13 复制到webpack.prod.conf.js的代码
+          optimization: {
+            splitChunks: {
+              chunks: 'async',
+              minSize: 30000,
+             // minRemainingSize: 0, //在webpack4.0的时候不适用
+              maxSize: 0,
+              minChunks: 1,
+              maxAsyncRequests: 6,
+              maxInitialRequests: 4,
+              automaticNameDelimiter: '~',
+              automaticNameMaxLength: 30,
+              cacheGroups: {
+                defaultVendors: {
+                  test: /[\\/]node_modules[\\/]/,
+                  priority: -10
+                },
+                default: {
+                  minChunks: 2,
+                  priority: -20,
+                  reuseExistingChunk: true
+                }
+              }
+            }
+          }
+    11.14 extract-text-webpack-plugin插件不合适 //npm i extract-text-webpack-plugin@latest -D(暂时还是不支持)
+    注意： npm i extract-text-webpack-plugin@next -D  //next是还没对外正式发布的，但是他已经有的了。latest则是对外发布了的最新版本
+    11.15 contenthash css的哈希值在webpack里面不支持，自带的hash就可以了将contenthash改成hash就可以
+    11.16 html-webpack-plugin版本不合适报错 //npm i html-webpack-plugin@latest -D
+    11.17 mode 模式未确定，生产模式的话就增加 mode:'production',
+    11.18 报错 Unhandled rejection Error: "dependency" is not a valid chunk sort mode
+    就将webpack.prod.conf.js里面的chunksSortMode对象注释或者改成auto也可以。这样升级就结束了

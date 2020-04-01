@@ -1,0 +1,33 @@
+1.DEMO 讲解
+2.独立于项目
+3.纯粹讲技术，不涉及业务
+1.自己基于webpack建一个小型的cli项目（vue-cli）
+    1.在项目文件里面输入指令 npm init -y
+    2.npm i webpack-cli -D  //这样可以调用webpack指令
+    3.然后新建webpack.confog.js里面做配置 输入文件、输出文件、 webpack-dev-server 、babel-loader、miniCssExtract、HtmlWebpackPlugin（具体可以看webpack b站自学笔记）
+    在vue实例中挂载的时候会把整个节点给替换掉
+    //第一种写法
+    new Vue({
+        el:'#root',
+        template:'<div> this is a template</div>'
+    })
+    //第二种
+    var app=new Vue({
+        template:'<div> this is a template</div>'
+    })
+    app.$mount('#root') //靠$mount挂载到root上
+2.vue的实例
+    2.1 vue实例的创建和作用
+    2.2 vue实例的属性
+        var app=new Vue();
+        app.$data  //获取到data里面的数据
+        app.$prop  //获取到prop里面的数据
+        app.$el  //获取到app这个实例里面的dom节点
+        app.$options  //获取到app整个实例。通过$options修改数据是不起作用的，
+        app.$options.render=(h) => { //在数据出现变化的时候会渲染页面的内容。没有变化的时候这个就不生效了
+            return h('div',{},'function new ')
+        }
+        app.$root ===app //$root是根实例的起点
+        app.$children //组件的子标签
+        app.$slots //暂位符
+    2.3 vue实例的方法

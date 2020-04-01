@@ -18,7 +18,7 @@
         // 例子
             //单个文件打包的
         const path=require('path');
-        mmodule.exports={
+        module.exports={
              entry:'./index.js', //entry 是个对象，可以经行多个文件打包
              output:{
                  path:path.resolve(__dirname ,'dist'),

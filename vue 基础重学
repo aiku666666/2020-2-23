@@ -30,4 +30,5 @@
         app.$root ===app //$root是根实例的起点
         app.$children //组件的子标签
         app.$slots //暂位符
+        app.$scopedSlots
     2.3 vue实例的方法

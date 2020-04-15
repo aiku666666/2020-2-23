@@ -29,6 +29,19 @@
         }
         app.$root ===app //$root是根实例的起点
         app.$children //组件的子标签
-        app.$slots //暂位符
-        app.$scopedSlots
+        app.$slots //vue 插槽概念
+        app.$scopedSlots //vue 插槽概念
+        app.$refs //快速定位到一个节点或组件
+        app.$isServer //判断服务端渲染
+        app.$watch //可以在里面写数据监听事件和在实例写的效果一样(但是实例里面的在页面结束后会自动注销，这个则需要手动注销)
+        var unWatch=app.$watch('num',(newNum,oldNum) =>{
+            console.log(`${newNum}:${oldNum}`)
+        }) //它会返回一个注销监听事件的方法
+        setTimeout(() => {
+            unWatch()//重新调用后就会注销了监听事件了
+        },3000)
+        app.$on('test',() => {  //监听事件
+            console.log('test emited')
+        })
+        app.$emit('test') //触发事件。2个只能作用在同一个实例上才会触发（39）
     2.3 vue实例的方法

@@ -106,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ins
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n //第一种写法\n\n/*new Vue({\r\n    el:'#root',\r\n    template:'<div> this is a template</div>'\r\n})*/\n//第二种\n\nvar app = new vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n  template: '<div> this is a template</div>'\n});\n\n//# sourceURL=webpack:///./instance/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n //第一种写法\n\n/*new Vue({\r\n    el:'#root',\r\n    template:'<div> this is a template</div>'\r\n})*/\n//第二种\n\nvar app = new vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n  template: '<div> {{text}}-{{num}}</div>',\n  data: {\n    text: 'text',\n    num: 0\n  }\n});\napp.$mount('#root');\napp.$data.text = 'text2';\nsetInterval(function () {\n  app.$data.num += 1;\n}, 1000);\napp.$watch('num', function (newNum, oldNum) {\n  console.log(newNum + ':' + oldNum);\n});\n\n//# sourceURL=webpack:///./instance/index.js?");
 
 /***/ }),
 

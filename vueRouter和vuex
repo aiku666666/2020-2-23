@@ -1,0 +1,32 @@
+1.vue 路由的基本配置
+    <router-view/> //类似路由的插槽
+    import Vue from 'vue' //引入vue
+    import Router from 'vue-router' //引入路由插件
+    import HelloWorld from '@/components/HelloWorld' //引入模块
+    Vue.use(Router)  //申明
+    export default new Router({ //导出
+     mode:'history', //路由模式是哈希还是传统路由
+      routes: [
+        {
+          path: '/HelloWorld', //路劲
+          name: 'HelloWorld', //模块名称
+          component: HelloWorld //模块名
+        },
+        {
+            path: '/', //路劲
+            redirect:'/HelloWorld'//重定向
+        }
+      ]
+    })
+2.网站链接
+    一般情况下有井号的链接是哈希路由，很多时候是用来做定位的，不是做路由状态的记录。哈希路由是不会被我们搜索引擎所解析的，不利于seo的优化
+3.打包完项目后利用http-server测试vue-cli打包后的项目
+    3.1 npm install http-server -g
+    3.2 http-server [path] [options]  //如果指定path,即为指定的路径，如果不指定，即为当前所在文件路径 http-server ./dist
+    options选项说明
+      下面介绍几个常用的：
+        -p 要使用的端口（默认为8080）；
+        -o 启动服务器后打开浏览器窗口；
+        -P 或 --proxy代理不能在本地解析给定的url的所有请求；
+        -S 或 --ssl启用https；
+    例子 http-server -p 8081 -o -P http://www.baidu.com

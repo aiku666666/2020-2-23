@@ -28,3 +28,38 @@ es是标准，js是实现(bysEs6 es6实例集合)
         let obj={a:1,b:2}; let{a:A,b}=obj; let a=5 //会报错的，应为对象解构赋值和普通的赋值其实是一样的，同一级别下的let不能重复定义赋值
         let obj={a:1,b:2;let a=0; {a,b}=obj //会报错,大括号赋值的时候不能出现在最前面。应为那样会被js'认为是代码块。解决的方法是加括号({a,b}=obj)这样告诉解析器这个是个语句
         let {a=1;b=2}={a:2}  //a=2,b=2.默认值的方法和数组解构的一样的
+        let {a:A=2,b=2}={a:10}  //将a指定给A，且默认值设置为2
+5 变量的解构赋值（其他）
+    5.1其他结构赋值方法
+        es5 var length='yo.'.lenghth;
+        es6 let {length}='yo.' //这样就获取长度了,而且需要参数名字叫做length才可以获取字段长度
+            let [a,b,c]='yo.' //解构字符串，将字符串一一放到数组中
+            函数的字符解构  //只要结构一样就可以用解构
+            1.
+                let arr=[1,2];
+                function test([a,b]){
+                    console.log(a);
+                    console.log(b);
+                }
+                test(arr)
+            2.
+                let obj={b:2}
+                function test({a=10,b}){
+                    console.log(a);
+                    console.log(b);
+                }
+                test(obj)
+6.新增字符串方法
+    6.1 es6判断是否有字符 'yo.'.includes('y') //如果存在就是true。否则就是false
+        es5 则使用的是indexOf判断如果有则返回值大于-1
+    6.2 es6 startsWith是否以哪个字符串开头的，返回布尔值
+            endsWith是否以哪个字符串结束的，返回布尔值
+            repeat是复制字符串。后面括号跟随的数字，意味复制几次
+7 模板字符串
+    7.1 使用方法(主要有  ``和${参数})
+        let title='2020/4/23';
+        let tpl=` <div>
+                        <h4>${title+`<span>测试模板使用方法${'ok'}</span>`}</h4>
+                    </div> `
+        console.log(tpl)
+

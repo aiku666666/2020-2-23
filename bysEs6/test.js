@@ -41,20 +41,21 @@ console.log('a',a)
 console.log('c',c)
 console.log('d',d)*/
 
+/*
 //对象解构
 let obj={a:1,b:2}
-/*let {a,b}=obj;
+/!*let {a,b}=obj;
 console.log('a',a);
-console.log('b',b);*/
+console.log('b',b);*!/
 
-/*let {c,b}=obj;
-console.log('c',c); //c为underfined*/
+/!*let {c,b}=obj;
+console.log('c',c); //c为underfined*!/
 
-/*let {a:A,b}=obj;
+/!*let {a:A,b}=obj;
 console.log('A',A);
-console.log('a',a);*/
+console.log('a',a);*!/
 
- /*   //复杂的对象解构
+ /!*   //复杂的对象解构
   let obj2={
       arr:[
           'you.',
@@ -63,4 +64,27 @@ console.log('a',a);*/
   }
    let {arr:[green,{a}]}=obj2;
    console.log('green:',green)
-   console.log('a:',a)*/
+   console.log('a:',a)*!/
+*/
+ //其他的结构方式
+/*let {length}='yo.';
+console.log(length)*/
+/*let [a,b,c]='yo.'
+console.log(a,b,c)*/
+/*let arr=[1,2];
+function test([a,b]){
+    console.log(a);
+    console.log(b);
+}
+test(arr)*/
+/*let obj={b:2}
+function test({a=10,b}){
+    console.log(a);
+    console.log(b);
+}
+test(obj)*/
+let title='2020/4/23';
+let tpl=` <div>
+                <h4>${title+`<span>测试模板使用方法${'ok'}</span>`}</h4>
+            </div> `
+console.log(tpl)

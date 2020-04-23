@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5fc5b5b-66f1-45c6-83e2-d73f8d0f7865" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bysEs6/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bysEs6/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/es6/useStrict.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/表严肃初学es6" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/es6学习.txt" beforeDir="false" afterPath="$PROJECT_DIR$/es6学习.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bysEs6/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/bysEs6/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/表严肃初学es6" beforeDir="false" afterPath="$PROJECT_DIR$/表严肃初学es6" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -53,8 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/表严肃初学es6">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="24" column="54" lean-forward="true" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+            <state relative-caret-position="287">
+              <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
             </state>
           </provider>
         </entry>
@@ -62,8 +59,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bysEs6/test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="55" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="206">
+              <caret line="85" selection-start-line="85" selection-end-line="89" selection-end-column="16" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -74,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bysEs6/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="16" lean-forward="true" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+            <state relative-caret-position="76">
+              <caret line="4" column="12" lean-forward="true" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -298,12 +295,13 @@
       <workItem from="1587345590463" duration="887000" />
       <workItem from="1587369764179" duration="2425000" />
       <workItem from="1587542372013" duration="4190000" />
-      <workItem from="1587607690686" duration="5942000" />
+      <workItem from="1587607690686" duration="6666000" />
+      <workItem from="1587626458529" duration="3933000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134251000" />
+    <option name="totallyTimeSpent" value="138908000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -316,7 +314,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24925596" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -667,15 +664,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bysEs6/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="16" lean-forward="true" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        <state relative-caret-position="76">
+          <caret line="4" column="12" lean-forward="true" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bysEs6/test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="206">
+          <caret line="85" selection-start-line="85" selection-end-line="89" selection-end-column="16" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -684,8 +681,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/表严肃初学es6">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="24" column="54" lean-forward="true" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+        <state relative-caret-position="287">
+          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
         </state>
       </provider>
     </entry>

@@ -83,8 +83,27 @@ function test({a=10,b}){
     console.log(b);
 }
 test(obj)*/
-let title='2020/4/23';
+/*let title='2020/4/23';
 let tpl=` <div>
                 <h4>${title+`<span>测试模板使用方法${'ok'}</span>`}</h4>
             </div> `
-console.log(tpl)
+console.log(tpl)*/
+
+//Symbol
+/*let a=Symbol('this is a symbol')
+let b=Symbol()
+console.log(a == b)*/
+/*//file1.js
+let name=Symbol();  //由于Symbol的值不一样，
+{
+    var persion={};
+    persion[name]='lin'
+    console.log('1',persion)
+}
+//file2.js
+{
+    let name=Symbol(); //由于参数name又被let重新定义了，而且这边获取的symbol的值和上游的那一个又是不同的。所以key值都是不一样的
+    persion[name]='hui';
+    console.log('2',persion)
+}
+console.log('3',persion)*/

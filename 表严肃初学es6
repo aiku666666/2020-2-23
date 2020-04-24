@@ -62,4 +62,18 @@ es是标准，js是实现(bysEs6 es6实例集合)
                         <h4>${title+`<span>测试模板使用方法${'ok'}</span>`}</h4>
                     </div> `
         console.log(tpl)
-
+8 Symbol类型
+    8.1 数据类型
+        es6 Symbol
+        es5 underfined
+            null
+            boolean
+            String
+            Number
+            Object
+     8.2 Symbol每次创建一个symbol的值都是不一样的
+     8.3 Symbol用法
+            let a=Symbol(描述);  //描述对值是不影响的
+     8.4 防止一个对象属性被重复使用
+9.Proxy（代理）
+    9.1作用：在言语层面上去操作一个对象

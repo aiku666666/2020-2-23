@@ -1,0 +1,39 @@
+1. 安装gulp
+    npm install --g gulp
+    npm install gulp --save-dev
+2. 安装babel及相关插件
+    npm install -g babel-cli // 注意版本为6.xx
+    npm install babel-cli --save-dev
+    npm install babel-preset-env --save-dev //babel编译模板
+    // 根据babel文档指引是不需要babel-core的，但是在实际操作中少了babel-core会报找不到该模块，所以安装上即可
+     npm install babel-core —save-dev;  //这个方法中可要可不要
+    npm install babel-plugin-transform-remove-strict-mode --save-dev // 编译时移除全局严格模式
+3. 安装gulp-babel插件，注意版本为7.xx，与babel版本有关，详细见[github](https://github.com/babel/gulp-babel)
+    npm install gulp-babel@7 --save-dev
+4. 安装实时编译插件
+    npm install --save-dev gulp-watch
+编写相应的配置文件
+1. babel配置文件.babelrc
+在项目根目录下新建该文件，并编写如下内容：
+    {
+        "presets": [ [ "env", { "modules": false } ] ], // 貌似这里的modules为false才可以识别this，在浏览器环境中有用
+        "plugins": ["transform-remove-strict-mode"]
+    }
+2. gulp配置文件gulpfile.js
+        var gulp = require("gulp"),
+        babel = require("gulp-babel"),
+        watch = require("gulp-watch");
+        gulp.task("babeljs", function() {
+        return gulp.src("src/*.js") // 输入目录
+        .pipe(babel())
+        .pipe(gulp.dest("dist/")); // 输出目录
+      });
+     gulp.task("watch", function() { // 实时监听
+       gulp.watch('src/*.js', ['babeljs']);
+     });
+     gulp.task('default', ['watch', 'babeljs']);
+OK，最后一步
+在项目根目录下，执行gulp，然后修改src下的js文件，你就会发现会被实时转译到dist目录中。
+
+存在的问题
+写代码时如果有语法错误，gulp的实时监控就会退出，所以，这个解决方法还是不够智能。

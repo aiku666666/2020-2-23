@@ -107,3 +107,21 @@ let name=Symbol();  //由于Symbol的值不一样，
     console.log('2',persion)
 }
 console.log('3',persion)*/
+
+/*let user=new Proxy({},{
+    get:function(obj,prop){  //obj对应的是第一个参数,prop是一个字符串
+        if(prop == 'full_name'){
+            return obj.fname+''+obj.lname
+        }
+    },
+    set:function(){
+
+    }
+})
+user.fname='Bod';
+user.lname='Wood'
+console.log('full_name',user.full_name)*/
+
+//set
+var s=new Set([1,2,3,3,3])
+console.log('s',s)

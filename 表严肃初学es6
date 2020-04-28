@@ -77,3 +77,27 @@ es是标准，js是实现(bysEs6 es6实例集合)
      8.4 防止一个对象属性被重复使用
 9.Proxy（代理）
     9.1作用：在言语层面上去操作一个对象
+    9.2 用法 var user=new Proxy({},{})
+   实例：
+    let user=new Proxy({},{
+        get:function(obj,prop){  //obj对应的是第一个参数,prop是一个字符串
+            if(prop == 'full_name'){
+                return obj.fname+''+obj.lname
+            }
+        },
+        set:function(){
+
+        }
+    })
+    user.fname='Bod';
+    user.lname='Wood'
+    console.log('full_name',user.full_name)
+10 Set(和数组差不多) //数据解构
+    10.1 用法 var s=new Set([1,2,3,3])
+        s.size  // 计算长度
+        s.add(4) //添加值，获取1，2，3，4
+        s.delete(2) //删除值 获取 1，3，4
+        s.has(3) //检查是否拥有某个值，传回布尔值
+        s.claer() //清空值
+    10.2 注意：set里面的值都是唯一的，重复的只会取唯一值，其他的丢掉
+

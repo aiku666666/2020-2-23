@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rxjs</title>
+    <script src="../js/jquery/jquery-3.1.0.js"></script>
+</head>
+<body>
+<input id="text"/>
+<div id="result"></div>
+<script>
+    import Rx from 'rxjs/Rx';
+
+    const Observable = Rx.Observable
+
+    const input = document.querySelector('input')
+
+    const search$ = Observable.fromEvent(input, 'input')
+        .map(e => e.target.value)
+        .filter(value => value.length >= 1)
+        .throttleTime(1000)
+        .distinctUntilChanged()
+        .switchMap(term => Observable.fromPromise(wikiIt(term)))
+        .subscribe(
+            x => renderSearchResult(x),
+            err => console.error(err)
+        )
+
+    function renderSearchResult(result) {
+        document.querySelector('#result').innerHTML = result[1]
+            .map(r => `<li>${r}</li>`)
+            .join('')
+    }
+
+    function wikiIt(term) {
+        var url = 'http://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=' + encodeURIComponent(term) + '&origin=*';
+        return $.getJSON(url)
+    }
+
+
+</script>
+</body>
+</html>

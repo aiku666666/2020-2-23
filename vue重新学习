@@ -1,0 +1,16 @@
+“vue实例” 是具体的例子
+1.双括号解析语句和angular差不多都可以解析一部分语句，但并不是所有语句都可以解析
+2.在vue里面所有的数据都放在data里面，但是在模块化里面data是个函数返回对象，而在正常情况下data对应就是对象，如果在页面调用数据的时候，但是数据没在data定义
+的就会报错
+指令：（vue里面自定义的属性叫做指令）
+    v-model //双向绑定
+    v-show  //显示/隐藏 永远存在，就是给不给显示罢了元素还是在dom里面
+    v-if   //显示/隐藏 直接从dom中删除，不会给你隐藏
+    v-for //循环v-for in
+    v-bind //绑定数据和元素属性的 v-bind:自定义属性名（html属性） 后面加data数据就好，做到动态添加。这个属性和angular的ng-自定义属性（html属性）简写方式v-bind:等价于:
+    v-on:事件  //绑定事件 例如v-on:click 点击事件.在angular里面则是ng-事件。
+        一个dom绑定多个事件 v-on="{mouseenter:onEnter,mouseleave:onOut}" //鼠标移入移开事件
+        禁止默认事件时候，方法在页面上的事件本身的参数是$event这个和angular一样
+        vue里面也为我们封装了对应的事件例如：v-on:submit.prevent='方法' //禁止默认事件   v-on:submit.stop='方法' //停止冒泡事件
+        还有vue里面键盘事件的语义化 例子 v-on:keyup.enter='方法' //点击enter的时候执行方法.如果要其他键盘字符就直接将enter换成字母就好了
+        v-on:可以简写成@

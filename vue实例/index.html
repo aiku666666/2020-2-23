@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <a v-on:click="alerts(data)" v-on="{mouseenter:onEnter,mouseleave:onOut}">{{data}}</a>
+    <form action="" v-on:submit="onSubmit($event)" v-on:keyup.enter="onEnter">
+        <input type="text">
+        <button type="submit">提交</button>
+    </form>
+</div>
+<script src="lib/vuejs/vue.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

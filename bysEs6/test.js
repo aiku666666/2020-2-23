@@ -1,3 +1,8 @@
+let title='2020/4/23';
+let tpl=` <div>
+                        <h4>${title+`<span>测试模板使用方法${'ok'}</span>`}</h4>
+                    </div> `
+console.log(tpl)
 /*if(true){
     var a=1;
     let b=2
@@ -123,5 +128,5 @@ user.lname='Wood'
 console.log('full_name',user.full_name)*/
 
 //set
-var s=new Set([1,2,3,3,3])
-console.log('s',s)
+/*var s=new Set([1,2,3,3,3])
+console.log('s',s)*/

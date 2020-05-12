@@ -14,3 +14,71 @@
         vue里面也为我们封装了对应的事件例如：v-on:submit.prevent='方法' //禁止默认事件   v-on:submit.stop='方法' //停止冒泡事件
         还有vue里面键盘事件的语义化 例子 v-on:keyup.enter='方法' //点击enter的时候执行方法.如果要其他键盘字符就直接将enter换成字母就好了
         v-on:可以简写成@
+    v-model具体用法（input,select,textarea）
+        v-model.lazy // 惰性更新（只有input失焦的时候才会触发）就是个change事件
+        v-model.trim  //把用户输入的值前后的空格键都去除
+        v-model.number //用户只能输入数字
+    v-model在其他元素及类型上的用法
+        input 的radio情况下，只用v-model就好不需要用传统的name来强制只能选择一个。其他基本都一样,数据是一个字符串就好
+            <input type='radio' v-model='sex' value='男'> <input type='radio' v-model='sex' value='女'>
+        input 的checkbox情况下，数据改成数组型。
+            <input type='checkbox' v-model='arr' value='男'> <input type='checkbox' v-model='arr' value='女'>
+        select 在多选的情况下加一个属性multiple 然后数据类型改成数组就可以了
+    控制流指令（v-if,v-else,v-else-if）
+        <span v-if="role=='admin' || role == 'superAdmin'">管理员你好</span>
+        <span v-else-if="role=='hr'">工作人员你好</span>
+        <span v-else>没有权限</span>
+计算属性(computed)计算属性都要一个return返回值。通过其他数据算出一个新的数据
+    有点：获取到的数据已经缓存下来了，在其他数据没有改变的情况下他调取的是缓存数据。
+    例子: new Vue({
+        data:{
+            a1:'1',
+            a2:'2'
+        },
+        computed:{
+            sum:function(){
+                return this.a1+this.a2 //this指代的是这个实例
+            },
+            average:function(){
+                return this.sum/3   //求平均分
+            }
+        }
+    })
+    //调用 直接 {{sum}}
+组件 - 全局及局部组件(component)
+    用法全局组件用法：Vue.component('组件名',{})
+    局部组件用法： new Vue({
+        components:{
+           '组件名':{}
+        }
+    })
+组件 - 配置组件
+    Vue.component('like',{
+        template:'<button @click="datas">{{data1}}</button>' //模板
+        data:function(){ //数据。由于每次调用一次都会新实例化一个新的对象就要有新的数据
+            return {
+                data1:'20'
+            }
+        },
+        methods:{
+            datas:function(){
+                this.data1++;
+            }
+        }
+    })
+    也可以写在页面上
+    <template id='likes'><button @click="datas">{{data1}}</button></template>
+    Vue.component('like',{
+        template:'#likes' //模板
+        data:function(){ //数据。由于每次调用一次都会新实例化一个新的对象就要有新的数据
+            return {
+                data1:'20'
+            }
+        },
+        methods:{
+            datas:function(){
+                this.data1++;
+            }
+        }
+    })
+组件 - 父子通信

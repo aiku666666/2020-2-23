@@ -1,3 +1,6 @@
-let [a,b]=[5,6]
-console.log('a',a);
-console.log('b',b);
+let arr=[5,6]
+var sb = ([a,b]) =>{
+    console.log(a);
+    console.log(b)
+}
+sb(arr)

@@ -82,3 +82,85 @@
         }
     })
 组件 - 父子通信
+    组建传参通过自定义指令传参，是从外部往内部传值，接收时候是通过props来接收的。[props效果和data用法差不多，就接收方式不太一样]
+    这个是个父组建和子组建沟通的桥梁
+
+组件 - 子父通信
+    在子组建的方法里面触发一个发射器 this.$emit('方法名',{参数})
+    在子组建名上接收这个发射器的方法名字 @方法名='父方法'//父方法接收的参数是子发射器里面的参数
+
+组件 - 任意及平行组件间通信
+    任意组建间的通讯要有一个中间调度器.然后用中间调度器的$emit('方法名',参数)。
+    其他组建获取时候也用中间调度器的$on('对应的方法名",function(){})这样就可以了
+    例子：
+    var Even=new Vue({})
+     Even.$emit('getHuahua',参数)
+     Even.$on('getHuahua',function (data) {})
+
+过滤器
+    filter是不会修改原始数据，给人感觉就是解决最后到达用户界面的最后一步。优化用户体验。如果函数内十分的复杂就考虑要不要使用计算属性了
+    全局写法
+        Vue.filter('xiugai',function(data){
+            return data+'元'
+        })
+     组件内写法
+     new Vue({
+         el:'#app',
+         filters:{
+             xiugai:function(data){
+                 return data+'元'
+             }
+
+         }
+     })
+自定义指令 - 基础配置
+    v-指令名（灵活和省力）
+    自定义指令 Vue.directive('指令名',function(el,binding){// el参数表示的这个指令所在的元素,binding表示的这个指令的值或者是其它基本信息
+        binding.value //表示自定义指令的值
+    })
+自定义指令 - 配置传参及修饰符
+    v-指令名.属性.属性  //就是通过修饰符
+    v-指令名:参数.属性.属性 //传参和修饰符
+
+    自定义指令 Vue.directive('指令名',function(el,binding){// el参数表示的这个指令所在的元素,binding表示的这个指令的值或者是其它基本信息
+        binding.value //表示自定义指令的值
+        binding.modifiers //获取到一个对象，对应的修饰符的结果返回是布尔值。可以用for in来便利对象，其中对应的key就是修饰符的名字
+        binding.arg //获取到参数
+    })
+
+混合 mixins（重复功能混合的储存器）
+   用法 mixins;[封好的对象]
+   注意：组件的方法或者数据会自动覆盖mixins里面的数据
+
+插槽 slots【占位符】
+    用法：
+    <slot name='指定名称'>默认数据</slot>  //插槽模板可以放默认数据也可以不放
+    <div slot='指定名称'>动态数据</div> //这边写的数据会覆盖默认数据，如果不写或没有就使用默认数据
+
+Vue.js生态之vue-router
+    路由作用：指导一个网页层级以及定位资源用的
+    单页面应用是不刷新页面，不丢失状态，不丢失数据
+
+安装和基本配置
+    实例
+        html
+         <router-link to="/">首页</router-link>  //router-link 链接跳转， to对应的是跳转的路径
+         <router-view></router-view> //路由切换模块
+       js
+            var routes=[
+                {
+                    path:'/',
+                    component:{   //需要展示的组件
+                        template:`<div> 首页</div>`
+                    }
+                }
+            ]
+            var router=new VueRouter({  //VueRouter 是vue-router开放的接口
+                routes:routes
+            })
+            new Vue({
+                el:'#app',
+                router:router
+            })
+
+传参及获取传参

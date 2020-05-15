@@ -164,3 +164,53 @@ Vue.js生态之vue-router
             })
 
 传参及获取传参
+    传参有2中方式
+    1. <router-link to="/user/参数">我叫王花花</router-link>
+       获取参数$route.params.参数
+       {
+           path:'/user/:name',
+           component:{
+               template:`<div>我叫：{{$route.params.name}}</div>`
+           }
+        }
+    2. <router-link to="/users?name=参数">我叫王花花</router-link>
+        获取参数$route.query.参数
+        {
+            path:'/users',
+            component:{
+                template:`<div>我叫：{{$route.query.name}}</div>`
+            }
+         }
+
+子路由
+    实例：在镶嵌路由的时候对应的模板下也需要有router-view,而对应的子路由的路径也放在父路径下面，放在children里面。children和routes一样都是数组
+    var routes=[
+        {
+                path:'/user/:name',
+                component:{ /*<router-link :to="'/user/'+$route.params.name+'/more'">更多</router-link>*/  //路径拼接在一起，$route.params.name是参数
+                    template:`<div>
+                                我叫：{{$route.params.name}}
+                                <router-link to="more" append>更多</router-link> //路径不需要拼接直接写子路径就好，在添加append意思是在当前路径下加子路径
+                                <router-view></router-view>
+                            </div>`
+                },
+                children:[
+                    {
+                        path:'more', //子路由路径不需要加斜杠
+                        component:{
+                            template:`
+                                <div>
+                                    用户信息{{$route.params.name}}
+                                    <span>二u哦额u哦亲哦大家了解到了单独，当年开始的开始的开始对接电视上看到数据库是的接口的接口打开手机打开</span>
+                                </div>
+                            `
+                        }
+                    }
+                ]
+         }
+    ]
+
+手动访问和传参
+    手动访问：this.router.push('路径')
+    手动访问和传参：this.router.push({name:'user',params:{name:'王花花'}}) //name表示路由名称，params是参数对象
+

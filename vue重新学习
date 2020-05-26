@@ -214,3 +214,57 @@ Vue.js生态之vue-router
     手动访问：this.router.push('路径')
     手动访问和传参：this.router.push({name:'user',params:{name:'王花花'}}) //name表示路由名称，params是参数对象
 
+命名视图
+    用途：<router-view name='content'></router-view>
+    实例
+    index.html
+        <router-link to="/">首页</router-link>
+        <router-link to="/user">用户管理</router-link>
+        <router-link to="/root">系统管理</router-link>
+        <div>
+            <router-view name="silder"></router-view>
+            <router-view name="content"></router-view>
+        </div>
+     index.js
+        {
+            path:'/user',
+            components:{  //多个组件时用components，单个时候用component
+                silder:{
+                    template:`<ul> <li>用户管理1</li> <li>用户管理2</li>      </ul> `
+                },
+                content:{
+                    template:`<div>用户管理测试 </div>`
+                }
+            }
+        },
+        {
+            path:'/root',
+            components:{  //多个组件
+                silder:{
+                    template:`<ul> <li>系统管理1</li> <li>系统管理2</li>      </ul> `
+                },
+                content:{
+                    template:`<div>系统管理测试 </div>`
+                }
+            }
+        }
+
+导航钩子【路由的生命周期或者中间层】
+    用法：
+    1.router.beforeEach(function(to,from,next){ //beforeEach路由访问之前执行。form从哪里来，to到哪里去，next是一个function，告诉我们要怎么做。这个就是路由拦截
+        next() //正常执行，在next里面放链接就是页面跳转。放false就是都无法访问
+    })
+    2. router.afterEach(function(to,from){ }) //afterEach路由访问之后执行，没有next因为已经访问完了，to和from都是一个对象
+
+元数据及路由匹配（路由配置里面的meta就是元数据，也是自定义配置）
+    用法：
+        {
+            path:'/a',
+            component:{
+                template:`<div>A</div>`
+            },
+            meta:{
+                flags:true //自定义配置
+            }
+        }
+     路由拦截的时候的to是个对象，他底下又个matched是包含了路由和子路由的一切数据。主要用了meta的便利性

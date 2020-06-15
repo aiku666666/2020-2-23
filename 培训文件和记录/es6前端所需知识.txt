@@ -1,0 +1,7 @@
+- [ECMAScript 6 入门](http://es6.ruanyifeng.com)
+- [sonar校验规则](http://192.168.3.180:9000/coding_rules?activation=true&qprofile=AXCABd78pR5HGkl1ftWS)
+- [MDN web docs](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference)
+- [前端开发指南](http://192.168.1.211:8090/pages/viewpage.action?pageId=65753)
+
+运算优先级
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence

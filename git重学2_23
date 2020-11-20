@@ -11,7 +11,7 @@ git 创建仓库
     ls -la //列出所有子目录
     ctrl+c //阻止gulp运行
     //创建仓库的3种方式
-        git init //初始化仓库
+        git init //初始化仓库g
         git init 文件名 //创建一个文件的同时初始化改仓库
         git clone github的项目链接 //拷贝github的项目
         git clone github的项目链接 重命名的名字 //拷贝github的项目并且重命名文件夹名字
@@ -42,6 +42,10 @@ git 分支branch
     git branch 分支名字 //创建分支
     git checkout 分支名  //切换到分支上了
     git log --all --graph //图示全部历史记录
+    git branch -a //查看分支
+    git push origin –delete 分支名 //要删除服务器远端的分支
+    git branch –d 分支名  //要删除本地已经合并了的分支
+    git branch –D 分支名 //删除本地未合并的分支
 git 合并分支
     git checkout -b 分支名 //创建并切换至分支
     git merge 分支名  //合并分支【合并后代码可能会有冲突，所以认为修改冲突后提交】
